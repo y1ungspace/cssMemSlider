@@ -1,0 +1,25 @@
+{
+  "name": "cssmemslider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y1ungspace/cssMemSlider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/y1ungspace/cssMemSlider/issues"
+  },
+  "homepage": "https://github.com/y1ungspace/cssMemSlider#readme",
+  "dependencies": {
+    "eslint-config-airbnb": "^19.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0"
+  }
+}
