@@ -12,6 +12,7 @@ bottomPanel.classList.add('bottom-panel');
 
 let textBox = document.createElement('DIV');
 textBox.classList.add('text-box');
+textBox.textContent = 'hehe'
 
 let buttonsBox = document.createElement('DIV');
 buttonsBox.classList.add('buttons-box');
@@ -63,8 +64,11 @@ for (let i = 0; i < 6; i++) {
     button.classList.add('button', `button${i}`);
     buttonsBox.append(control);
     document.getElementsByClassName('control')[i].append(button);
-
 }
+
+document.getElementsByClassName('button')[0].id = 'active'
+
+
 
 function changeMeme(elem) {
     let target = elem.target
@@ -74,9 +78,16 @@ function changeMeme(elem) {
     } else {
         return;
     }
-    let n = numberOfImage * 30
+    let n = numberOfImage * 60
     slider.style.transform = `translateX(-${n}vh)`;
-    textBox.textContent = memes[numberOfImage].text
+
+    setTimeout(() => {textBox.style.opacity = 0});
+    setTimeout(() => {textBox.style.opacity = 1;
+        textBox.textContent = memes[numberOfImage].text;
+    },500);
+    
+    document.getElementById('active').id = '';
+    document.getElementsByClassName('button')[numberOfImage].id = 'active';
 }
 
 buttonsBox.addEventListener('click', changeMeme)
