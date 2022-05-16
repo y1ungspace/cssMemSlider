@@ -13,27 +13,27 @@
 }
 
 .image-wrapper {
-    max-width: 60vh;
+    max-width: 47%;
     overflow: hidden;
     margin: 0 auto;
 }
 
 .slider {
     display: flex;
-    max-height: 60vh;
     transition: 1s;
 }
 
 .image {
-  min-width: 60vh;
+  width: 100%;
   border-radius: 20px;
 }
 
 .bottom-panel {
     display: flex;
+    justify-content: flex-start;
     text-align: center;
-    margin-left: 20%;
-    margin-right: 20%;
+    max-width: 47%;
+    margin: 0 auto;
 }
 
 .text-box {
@@ -46,11 +46,11 @@
     justify-content: space-around;
     align-items: center;
     margin: 0 0 0 auto;
-    width: 30%;
 }
 
 .control {
-    padding: 20px;
+    padding: 20px 10px;
+    cursor: pointer;
 }
 
 .button {
@@ -82,4 +82,15 @@
 
 #active {
     background-color: rgb(237, 155, 100);
+}
+
+
+@media (max-width: 767px) {
+    .bottom-panel {
+        flex-direction: column-reverse;
+    }
+
+    .buttons-box {
+        margin: 0 0 0 0;
+    }
 }

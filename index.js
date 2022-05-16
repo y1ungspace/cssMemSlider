@@ -1,27 +1,27 @@
-let wrapper = document.createElement('DIV');
-wrapper.classList.add('wrapper');
+let wrapper = document.createElement("DIV");
+wrapper.classList.add("wrapper");
 
-let imageWrapper = document.createElement('DIV');
-imageWrapper.classList.add('image-wrapper');
+let imageWrapper = document.createElement("DIV");
+imageWrapper.classList.add("image-wrapper");
 
-let slider = document.createElement('DIV');
-slider.classList.add('slider');
+let slider = document.createElement("DIV");
+slider.classList.add("slider");
 
-let bottomPanel = document.createElement('DIV');
-bottomPanel.classList.add('bottom-panel');
+let bottomPanel = document.createElement("DIV");
+bottomPanel.classList.add("bottom-panel");
 
-let textBox = document.createElement('DIV');
-textBox.classList.add('text-box');
-textBox.textContent = 'hehe'
+let textBox = document.createElement("DIV");
+textBox.classList.add("text-box");
+textBox.textContent = "hehe";
 
-let buttonsBox = document.createElement('DIV');
-buttonsBox.classList.add('buttons-box');
+let buttonsBox = document.createElement("DIV");
+buttonsBox.classList.add("buttons-box");
 
 document.body.append(wrapper);
 wrapper.append(imageWrapper);
 imageWrapper.append(slider);
-wrapper.append(bottomPanel)
-bottomPanel.append(textBox)
+wrapper.append(bottomPanel);
+bottomPanel.append(textBox);
 bottomPanel.append(buttonsBox);
 
 
@@ -54,40 +54,48 @@ let memes = [
 ];
 
 for (let i = 0; i < 6; i++) {
-    let button = document.createElement('DIV');
-    let sliderImage = document.createElement('IMG');
-    let control = document.createElement('DIV');
-    control.classList.add('control', `control${i}`);
+    let button = document.createElement("DIV");
+    let sliderImage = document.createElement("IMG");
+    let control = document.createElement("DIV");
+    control.classList.add("control", `control${i}`);
     slider.append(sliderImage);
     sliderImage.src = memes[i].src;
-    sliderImage.classList.add('image');
-    button.classList.add('button', `button${i}`);
+    sliderImage.classList.add("image");
+    button.classList.add("button", `button${i}`);
     buttonsBox.append(control);
-    document.getElementsByClassName('control')[i].append(button);
+    document.getElementsByClassName("control")[i].append(button);
 }
 
-document.getElementsByClassName('button')[0].id = 'active'
-
-
+document.getElementsByClassName("button")[0].id = "active";
 
 function changeMeme(elem) {
-    let target = elem.target
+    let target = elem.target;
     let numberOfImage;
-    if (target.classList.contains('button') || target.classList.contains('control')) {
+    if (target.classList.contains("button") || target.classList.contains("control")) {
         numberOfImage = target.className.slice(-1);
     } else {
         return;
     }
-    let n = numberOfImage * 60
-    slider.style.transform = `translateX(-${n}vh)`;
+    let imageWidth = document.getElementsByClassName("image")[0].width;
+    console.log(imageWidth, numberOfImage * imageWidth );
+    let n = numberOfImage * imageWidth;
+    slider.style.transform = `translateX(-${n}px)`;
 
-    setTimeout(() => {textBox.style.opacity = 0});
+    setTimeout(() => {textBox.style.opacity = 0;});
     setTimeout(() => {textBox.style.opacity = 1;
         textBox.textContent = memes[numberOfImage].text;
     },500);
     
-    document.getElementById('active').id = '';
-    document.getElementsByClassName('button')[numberOfImage].id = 'active';
+    document.getElementById("active").id = "";
+    document.getElementsByClassName("button")[numberOfImage].id = "active";
 }
 
-buttonsBox.addEventListener('click', changeMeme)
+buttonsBox.addEventListener("click", changeMeme);
+
+let image = document.getElementsByClassName("image")[0];
+setTimeout(() => {slider.style.height = `${image.width}px`;});
+setTimeout(() => {slider.style.height = `${image.width}px`;}, 10);
+
+window.onresize = () => {
+    slider.style.height = `${image.width}px`;
+};
