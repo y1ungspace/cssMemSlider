@@ -1,19 +1,27 @@
 * {
     box-sizing: border-box;
-    font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* html {
-    font-size: 10px;
-} */
+
+html {
+    overflow:hidden;
+}
+
+input {
+    appearance: none;
+}
+
+:root {
+    --width: 75vh
+}
 
 .wrapper {
     margin: 5%;
 }
 
 .image-wrapper {
-    max-width: 47%;
+    max-width: var(--width);
     overflow: hidden;
     margin: 0 auto;
 }
@@ -21,24 +29,65 @@
 .slider {
     display: flex;
     transition: 1s;
+    min-height: var(--width);
 }
 
 .image {
-  width: 100%;
+  min-width: 100%;
   border-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
+.image-1 {
+    background-image: url('./assets/1f7.jpg');
+    background-size: var(--width) var(--width);
+}
+
+.image-2 {
+    background-image: url('./assets/22ad2c40151f0062adc0eb992f4b72ba.jpg');
+}
+
+.image-3 {
+    background-image: url('./assets/2d479c77bbafe1d5cdf5819f758d4ddb.jpg');
+}
+
+.image-4 {
+    background-image: url('./assets/49e707b949aa2af12331d36d4b399578.jpg');
+}
+
+.image-5 {
+    background-image: url('./assets/94c9692ccce00ba68de2b81663889946.jpg');
+}
+
+.image-6 {
+    background-image: url('./assets/d8fae6b66c05f4e64bcd910a2252afec.jpg');
+}
+
 
 .bottom-panel {
     display: flex;
     justify-content: flex-start;
     text-align: center;
-    max-width: 47%;
+    max-width: var(--width);
     margin: 0 auto;
 }
 
+.text-wrapper {
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+}
+
 .text-box {
-   margin: auto 0;
-   transition: 0.5s;
+    display: flex;
+    transition: 0.5s;
+    max-height: 100%;
+}
+
+.text {
+    text-align:start;
+    min-width: 50vh;
 }
 
 .buttons-box {
@@ -48,7 +97,7 @@
     margin: 0 0 0 auto;
 }
 
-.control {
+label {
     padding: 20px 10px;
     cursor: pointer;
 }
@@ -61,29 +110,104 @@
     border: 2px solid rgb(237, 155, 100);
     cursor: pointer;
     margin: 1px;
+    padding: 0px 8px;
     transition: 0.1s;
 }
 
-.control:hover  .button{
+label:hover  .button{
     min-width: 22px;
     min-height: 22px;
-    border-radius: 11px;
+    border-radius: 13px;
     background-color: rgb(237, 155, 100);
     margin: 0px;
 }
 
-.control:active .button{
+label:active .button{
     min-width: 16px;
     min-height: 16px;
-    border-radius: 8px;
+    border-radius: 13px;
     background-color: rgb(237, 155, 100);
     margin: 3px;
 }
 
-#active {
+
+#button-1:checked~ .wrapper .slider {
+    transform: translateX(0vh);
+  }
+
+#button-2:checked~ .wrapper .slider {
+  transform: translateX(-75vh);
+}
+
+#button-3:checked~ .wrapper .slider {
+    transform: translateX(-150vh);
+  }
+
+#button-4:checked~ .wrapper .slider {
+    transform: translateX(-225vh);
+}
+
+#button-5:checked~ .wrapper .slider {
+    transform: translateX(-300vh);
+}
+
+#button-6:checked~ .wrapper .slider {
+    transform: translateX(-375vh);
+}
+
+
+
+
+#button-1:checked~ .wrapper .text-box {
+    transform: translateX(0vh);
+}
+
+#button-2:checked~ .wrapper .text-box {
+    transform: translateX(-50vh);
+}
+
+#button-3:checked~ .wrapper .text-box {
+    transform: translateX(-100vh);
+}
+
+#button-4:checked~ .wrapper .text-box {
+    transform: translateX(-150vh);
+}
+
+#button-5:checked~ .wrapper .text-box {
+    transform: translateX(-200vh);
+}
+
+#button-6:checked~ .wrapper .text-box {
+    transform: translateX(-250vh);
+}
+
+
+
+
+#button-1:checked~ .wrapper .button-1 {
     background-color: rgb(237, 155, 100);
 }
 
+#button-2:checked~ .wrapper .button-2 {
+    background-color: rgb(237, 155, 100);
+}
+
+#button-3:checked~ .wrapper .button-3 {
+    background-color: rgb(237, 155, 100);
+}
+
+#button-4:checked~ .wrapper .button-4 {
+    background-color: rgb(237, 155, 100);
+}
+
+#button-5:checked~ .wrapper .button-5 {
+    background-color: rgb(237, 155, 100);
+}
+
+#button-6:checked~ .wrapper .button-6 {
+    background-color: rgb(237, 155, 100);
+}
 
 @media (max-width: 767px) {
     .bottom-panel {
@@ -92,5 +216,33 @@
 
     .buttons-box {
         margin: 0 0 0 0;
+    }
+
+    :root {
+        --width: 50vh
+    }
+
+    #button-1:checked~ .wrapper .slider {
+        transform: translateX(0vh);
+      }
+    
+    #button-2:checked~ .wrapper .slider {
+      transform: translateX(-50vh);
+    }
+    
+    #button-3:checked~ .wrapper .slider {
+        transform: translateX(-100vh);
+      }
+    
+    #button-4:checked~ .wrapper .slider {
+        transform: translateX(-150vh);
+    }
+    
+    #button-5:checked~ .wrapper .slider {
+        transform: translateX(-200vh);
+    }
+    
+    #button-6:checked~ .wrapper .slider {
+        transform: translateX(-250vh);
     }
 }
