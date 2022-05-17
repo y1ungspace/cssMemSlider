@@ -34,7 +34,7 @@ input {
 
 .image {
   min-width: 100%;
-  border-radius: 20px;
+  border-radius: 1.6em;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -98,36 +98,36 @@ input {
 }
 
 label {
-    padding: 20px 10px;
+    padding: 1.6em 0.83em;
     cursor: pointer;
 }
 
 .button {
-    min-width: 20px;
-    min-height: 20px;
+    min-width: 1.6em;
+    min-height: 1.6em;
     background-color: #fff;
-    border-radius: 10px;
-    border: 2px solid rgb(237, 155, 100);
+    border-radius: 0.83em;
+    border: 0.16em solid rgb(237, 155, 100);
     cursor: pointer;
-    margin: 1px;
-    padding: 0px 8px;
+    margin: 0.083em;
+    padding: 0 0.55em;
     transition: 0.1s;
 }
 
 label:hover  .button{
-    min-width: 22px;
-    min-height: 22px;
-    border-radius: 13px;
+    min-width: 1.83em;
+    min-height: 1.83em;
+    border-radius: 1.083em;
     background-color: rgb(237, 155, 100);
-    margin: 0px;
+    margin: 0;
 }
 
 label:active .button{
-    min-width: 16px;
-    min-height: 16px;
-    border-radius: 13px;
+    min-width: 1.3em;
+    min-height: 1.3em;
+    border-radius: 1.083em;
     background-color: rgb(237, 155, 100);
-    margin: 3px;
+    margin: 0.25em;
 }
 
 
